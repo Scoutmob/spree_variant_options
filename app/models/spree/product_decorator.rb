@@ -1,7 +1,7 @@
 Spree::Product.class_eval do
 
   def option_values
-    @_option_values ||= Spree::OptionValue.find_by_sql(["SELECT ov.id FROM spree_option_values ov INNER JOIN spree_option_values_variants ovv ON ovv.option_value_id = ov.id INNER JOIN spree_variants v on ovv.variant_id = v.id WHERE v.product_id = ? ORDER BY v.position", self.id])
+    @_option_values ||= Spree::OptionValue.find_by_sql(["SELECT ov.* FROM spree_option_values ov INNER JOIN spree_option_values_variants ovv ON ovv.option_value_id = ov.id INNER JOIN spree_variants v on ovv.variant_id = v.id WHERE v.product_id = ? ORDER BY v.position", self.id])
   end
 
   def grouped_option_values
