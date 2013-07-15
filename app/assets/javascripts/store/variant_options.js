@@ -175,7 +175,12 @@ function VariantOptions(params) {
   function toggle() {
     if (variant) {
       $('#variant_id, form[data-form-type="variant"] input[name$="[variant_id]"]').val(variant.id);
+      var oldprice = $('#product-price .price').text();
       $('#product-price .price').removeClass('unselected').text(variant.price);
+      if (oldprice != variant.price) { // highlight price change
+      	  $('#product-price .price').switchClass("price", "price-highlight");
+      	  $('#product-price .price').switchClass("price-highlight", "price", 1000);
+	   }
       if (variant.count > 0 || allow_backorders)
         $('#cart-form button[type=submit]').attr('disabled', false).fadeTo(100, 1);
       $('form[data-form-type="variant"] button[type=submit]').attr('disabled', false).fadeTo(100, 1);
