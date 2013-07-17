@@ -11,7 +11,7 @@ Spree::Variant.class_eval do
       :id    => self.id, 
       :count => self.count_on_hand, 
       :price => display_price.to_html({html: true}.merge({no_cents: true})), 
-      :retail_price => found_retail_price.nil? && found_retail_price.is_a?(Numeric) ? Money.new(found_retail_price * 100, "USD").format(no_cents: true) : ''
+      :retail_price => !found_retail_price.nil? && found_retail_price.is_a?(Numeric) ? Money.new(found_retail_price * 100, "USD").format(no_cents: true) : ''
     }
   end
     
