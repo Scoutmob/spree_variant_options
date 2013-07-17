@@ -176,7 +176,8 @@ function VariantOptions(params) {
     if (variant) {
       $('#variant_id, form[data-form-type="variant"] input[name$="[variant_id]"]').val(variant.id).change();
       var oldprice = $('#product-price .price').text();
-      $('#product-price .price').removeClass('unselected').text(variant.price);
+      $('#product-price .price').removeClass('unselected');
+      $('#product-price .price').text(variant.price);
       if (variant.retail_price.length > 0)
       	$('#product-price .retail').text(variant.retail_price);
       if (oldprice != variant.price) { // highlight price change
