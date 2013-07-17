@@ -181,8 +181,8 @@ function VariantOptions(params) {
       if (variant.retail_price.length > 0)
       	$('#product-price .retail').text(variant.retail_price);
       if (oldprice != variant.price) { // highlight price change
-      	  $('#product-price .price').switchClass("price", "price-highlight");
-      	  $('#product-price .price').switchClass("price-highlight", "price", 1000);
+      	  $('#product-price .price').addClass("price-highlight",200);
+      	  $('#product-price .price').removeClass("price-highlight",800);
 	   }
       if (variant.count > 0 || allow_backorders)
         $('#cart-form button[type=submit]').attr('disabled', false).fadeTo(100, 1);
