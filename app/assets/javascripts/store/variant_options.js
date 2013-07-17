@@ -174,7 +174,7 @@ function VariantOptions(params) {
 
   function toggle() {
     if (variant) {
-      $('#variant_id, form[data-form-type="variant"] input[name$="[variant_id]"]').val(variant.id);
+      $('#variant_id, form[data-form-type="variant"] input[name$="[variant_id]"]').val(variant.id).change();
       var oldprice = $('#product-price .price').text();
       $('#product-price .price').removeClass('unselected').text(variant.price);
       if (oldprice != variant.price) { // highlight price change
@@ -190,7 +190,7 @@ function VariantOptions(params) {
         // depends on modified version of product.js
       }
     } else {
-      $('#variant_id, form[data-form-type="variant"] input[name$="[variant_id]"]').val('');
+      $('#variant_id, form[data-form-type="variant"] input[name$="[variant_id]"]').val('').change();
       $('#cart-form button[type=submit], form[data-form-type="variant"] button[type=submit]').attr('disabled', true).fadeTo(0, 0.5);
     }
   }
