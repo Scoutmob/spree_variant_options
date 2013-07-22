@@ -1,7 +1,7 @@
 Spree::Product.class_eval do
 
   def option_values
-    @_option_values ||= Spree::OptionValue.for_product(self).sort_by{ |v| self.variants_for_option_value(v).sort_by{|var| var.position }.first.position }
+    @_option_values ||= Spree::OptionValue.for_product(self).sort_by{ |v| self.variants_for_option_value(v).sort_by{|var| var.position.to_i }.first.position.to_i }
   end
 
   def grouped_option_values
