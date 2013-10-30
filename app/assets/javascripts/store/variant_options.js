@@ -184,7 +184,7 @@ function VariantOptions(params) {
       	  $('#product-price .price').addClass("price-highlight",200);
       	  $('#product-price .price').removeClass("price-highlight",800);
 	   }
-      if (variant.count > 0 || allow_backorders)
+      if (variant.on_demand || variant.count > 0 || allow_backorders)
         $('#cart-form button[type=submit]').attr('disabled', false).fadeTo(100, 1);
       $('form[data-form-type="variant"] button[type=submit]').attr('disabled', false).fadeTo(100, 1);
       try {
