@@ -113,12 +113,12 @@ function VariantOptions(params) {
         disable($(element).addClass('unavailable locked').unbind('click'));
       } else if (keys.length == 1) {
         _var = variants[keys[0]];
-        $(element).addClass((allow_backorders || _var.count) ? selection.length == 1 ? 'in-stock auto-click' : 'in-stock' : 'out-of-stock');
+        $(element).addClass((allow_backorders || _var.count > 0) ? selection.length == 1 ? 'in-stock auto-click' : 'in-stock' : 'out-of-stock');
       } else if (allow_backorders) {
         $(element).addClass('in-stock');
       } else {
         $.each(variants, function(key, value) { count += value.count });
-        $(element).addClass(count ? 'in-stock' : 'out-of-stock');
+        $(element).addClass(count > 0 ? 'in-stock' : 'out-of-stock');
       }
     });
   }
